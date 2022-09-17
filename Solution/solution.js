@@ -1,21 +1,8 @@
-// Cant get the script tag to work
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
+/******************************************************************
+ ***** Copy and paste your SDK setup and configuration below *****
+ ******************************************************************/
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDha1SooUPDUg_nbn_ZCUCxqd8muuYfZ_c",
-  authDomain: "database-48bf3.firebaseapp.com",
-  databaseURL: "https://database-48bf3-default-rtdb.firebaseio.com",
-  projectId: "database-48bf3",
-  storageBucket: "database-48bf3.appspot.com",
-  messagingSenderId: "701969469360",
-  appId: "1:701969469360:web:3a784ca119a50f24ecd075",
-  measurementId: "G-TJTPNRKR91",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+//Paste CDN here without the script tags
 
 // Initialization
 import {
@@ -27,7 +14,10 @@ import {
   child,
   get,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
+
 const db = getDatabase();
+
+// References to HTML input fields
 var enterID = document.querySelector("#enterID");
 var enterName = document.querySelector("#enterName");
 var enterAge = document.querySelector("#enterAge");
@@ -35,11 +25,13 @@ var findID = document.querySelector("#findID");
 var findName = document.querySelector("#findName");
 var findAge = document.querySelector("#findAge");
 
+//Buttons
 var insertButton = document.querySelector("#insert");
 var updateButton = document.querySelector("#update");
 var removeButton = document.querySelector("#remove");
 var findButton = document.querySelector("#find");
 
+// Insert data into the database
 function insertData() {
   set(ref(db, "users/" + enterID.value), {
     name: enterName.value,
@@ -54,6 +46,8 @@ function insertData() {
       alert("Something went wrong. Please try again later.");
     });
 }
+
+// Finds data in the database
 function findData() {
   const dbref = ref(db);
   get(child(dbref, "users/" + findID.value))
@@ -69,6 +63,8 @@ function findData() {
       alert(error);
     });
 }
+
+// Updates the data at a specific ID
 function updateData() {
   update(ref(db, "users/" + enterID.value), {
     name: enterName.value,
@@ -84,6 +80,7 @@ function updateData() {
     });
 }
 
+// Removes the data at a specific ID
 function removeData() {
   remove(ref(db, "users/" + enterID.value))
     .then(() => {
@@ -95,6 +92,8 @@ function removeData() {
       alert("Something went wrong. Please try again later.");
     });
 }
+
+// Event listeners for the buttons: these call the functions above when clicked
 insertButton.addEventListener("click", insertData);
 updateButton.addEventListener("click", updateData);
 removeButton.addEventListener("click", removeData);
