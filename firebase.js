@@ -30,7 +30,9 @@ var removeButton = document.querySelector("#remove");
 var findButton = document.querySelector("#find");
 
 // Insert data into the database
-function insertData() {}
+function insertData() {
+  set( )
+}
 
 // Finds data in the database
 function findData() {}

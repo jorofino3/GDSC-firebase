@@ -15,7 +15,7 @@ import {
   get,
 } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-database.js";
 
-const db = getDatabase();
+const database = getDatabase();
 
 // References to HTML input fields
 var enterID = document.querySelector("#enterID");
@@ -33,7 +33,7 @@ var findButton = document.querySelector("#find");
 
 // Insert data into the database
 function insertData() {
-  set(ref(db, "users/" + enterID.value), {
+  set(ref(database, "users/" + enterID.value), {
     name: enterName.value,
     age: enterAge.value,
   })
@@ -49,7 +49,7 @@ function insertData() {
 
 // Finds data in the database
 function findData() {
-  const dbref = ref(db);
+  const dbref = ref(database);
   get(child(dbref, "users/" + findID.value))
     .then((snapshot) => {
       if (snapshot.exists()) {
@@ -66,7 +66,7 @@ function findData() {
 
 // Updates the data at a specific ID
 function updateData() {
-  update(ref(db, "users/" + enterID.value), {
+  update(ref(database, "users/" + enterID.value), {
     name: enterName.value,
     age: enterAge.value,
   })
@@ -82,7 +82,7 @@ function updateData() {
 
 // Removes the data at a specific ID
 function removeData() {
-  remove(ref(db, "users/" + enterID.value))
+  remove(ref(database, "users/" + enterID.value))
     .then(() => {
       console.log("Data removed successfully!");
       alert("Data removed successfully!");
