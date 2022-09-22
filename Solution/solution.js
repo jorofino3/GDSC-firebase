@@ -2,7 +2,7 @@
  ***** Copy and paste your SDK setup and configuration below *****
  ******************************************************************/
 
-//Paste CDN here without the script tags
+//Copy CDN without Script tags here
 
 // Initialization
 import {

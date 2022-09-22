@@ -2,7 +2,7 @@
  ***** Copy and paste your SDK setup and configuration below *****
  ******************************************************************/
 
-//Paste CDN here without the script tags
+//Copy CDN without Script tags here
 
 // Firebase imports
 import {
@@ -12,6 +12,7 @@ import {
   update,
   remove,
   child,
+  get,
 } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
 
 // Database contains a direct reference to the Firebase Realtime Database
@@ -30,15 +31,13 @@ var removeButton = document.querySelector("#remove");
 var findButton = document.querySelector("#find");
 
 // Insert data into the database
-function insertData() {
-  set( )
-}
-
-// Finds data in the database
-function findData() {}
+function insertData() {}
 
 // Updates the data at a specific ID
 function updateData() {}
+
+// Finds data in the database
+function findData() {}
 
 // Removes the data at a specific ID
 function removeData() {}
